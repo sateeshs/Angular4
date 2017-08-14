@@ -1,0 +1,58 @@
+
+    <md-sidenav-container [class.m2app-dark]="isDarkTheme">
+        
+          <md-sidenav #sidenav mode="side" class="app-sidenav">
+            Weather App
+          </md-sidenav>
+        
+          <md-toolbar color="primary">
+            <button class="app-icon-button" (click)="sidenav.toggle()">
+              <i class="material-icons app-toolbar-menu">menu</i>
+            </button> Weather&nbsp;App
+        
+          <!--  <button md-button ="['/']">Home</button>
+            <button md-button ="['/about', 'Hello, world!']">About</button>
+          -->
+          
+           
+          
+            <span class="app-toolbar-filler"></span>
+        
+            <button md-button ="['/material']">Material Demo</button>
+            <!--<button md-button *ngIf="loggedIn()" ="['/profile']">Profile</button> 
+            <button md-button *ngIf="!loggedIn()" (click)="login()">Sign in</button>
+            <button md-button *ngIf="loggedIn()" (click)="logout()">Sign out</button>
+        
+            <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE THEME</button>-->
+          </md-toolbar>
+        
+          <div class="app-content">
+            
+              <!--The content below is only a placeholder and can be replaced.-->
+<md-card> <app-city-search></app-city-search>
+</md-card>
+<br>
+    <md-card >
+        <form [formGroup]="weatherDashBoard">
+        <md-card-header> {{weatherDashBoard.value.temperature}}
+            <!--<div md-card-avatar class="example-header-image"></div>-->
+            <md-card-title>City</md-card-title>
+            <md-card-subtitle>{{weatherDashBoard.value.cityName}} {{weatherDashBoard.value.ioc}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+        
+        <div class="form-group">
+            <label class="center-block">{{weatherDashBoard.value.description}} {{weatherDashBoard.value.sunrise}}</label>
+        </div>
+        
+      
+        </md-card-content>
+      </form>
+      </md-card>
+    
+
+          </div>
+        
+        </md-sidenav-container>
+
+

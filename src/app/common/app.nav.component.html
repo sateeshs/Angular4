@@ -1,0 +1,73 @@
+
+    <md-sidenav-container [class.m2app-dark]="isDarkTheme">
+            
+              <md-sidenav #sidenav mode="side" class="app-sidenav">
+                Sidenav
+              </md-sidenav>
+            
+              <md-toolbar color="primary">
+                <button class="app-icon-button" (click)="sidenav.toggle()">
+                  <i class="material-icons app-toolbar-menu">menu</i>
+                </button> ng2play&nbsp;
+            
+                <button md-button ="['/']">Home</button>
+                <button md-button ="['/about', 'Hello, world!']">About</button>
+            
+                <span class="app-toolbar-filler"></span>
+            
+                <button md-button ="['/material']">Material Demo</button>
+                <!--<button md-button *ngIf="loggedIn()" ="['/profile']">Profile</button> -->
+                <button md-button *ngIf="!loggedIn()" (click)="login()">Sign in</button>
+                <button md-button *ngIf="loggedIn()" (click)="logout()">Sign out</button>
+            
+                <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE THEME</button>
+              </md-toolbar>
+            
+              <div class="app-content">
+                <!--<router-outlet></router-outlet> -->
+              </div>
+            
+            </md-sidenav-container>
+            
+            <span class="app-action" [class.m2app-dark]="isDarkTheme">
+              <button md-fab><md-icon>check circle</md-icon></button>
+            </span>
+    <!--
+    <md-toolbar color="primary">
+            
+                <span>MyCompany</span>
+                <span class="example-spacer"></span>
+                <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+                <button aria-label="Search" pullright>
+                        <md-icon>search</md-icon>
+                </button>
+            </md-toolbar>
+            <md-menu #appMenu="mdMenu">
+                    <button md-menu-item>
+                      <md-icon> dialpad </md-icon>
+                      <span> Redial </span>
+                    </button>
+                    <button md-menu-item disabled>
+                      <md-icon> voicemail </md-icon>
+                      <span> Check voicemail </span>
+                    </button>
+                    <button md-menu-item>
+                      <md-icon> notifications_off </md-icon>
+                      <span> Disable alerts </span>
+                    </button>
+                  </md-menu>
+                  
+                -->
+        <!--
+                  <md-sidenav-container fullscreen>
+                        <md-sidenav #start mode='side'  [opened]="true">
+                                <div class="my-content">Main content
+                                
+                            <a class="btn btn-primary">Home</a>
+                                </div>
+                        <br>
+                        </md-sidenav>
+                        <md-toolbar color="primary">
+                        </md-toolbar>
+                    </md-sidenav-container>
+                -->
