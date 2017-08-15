@@ -3,6 +3,62 @@
         
           <md-sidenav #sidenav mode="side" class="app-sidenav">
             Weather App
+            <md-list>
+                <md-list-item>
+                  <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                      <div class="inset">
+                        <button md-button> 
+                                <md-icon></md-icon>
+                                
+                                </button>
+                      </div>
+                      <div class="inset">
+                      </div>
+                    </md-item-content>
+                  </a>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item></md-list-item>
+                <md-list-item>
+                  <a>
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                      <div class="inset">
+                        <button md-button> 
+                        <md-icon>dashboard</md-icon>
+                        Dashboard
+                        </button>
+                      </div>
+                      <div class="inset">
+                          <button md-button>
+                              <md-icon>star</md-icon>
+                              Today
+                              </button>
+                      </div>
+                    </md-item-content>
+                  </a>
+                  </md-list-item>
+                  <!--
+                  <div class="insert">
+                  <md-divider></md-divider>
+                  </div>
+                  
+                  <md-list-subheader>Management</md-list-subheader>
+                  <md-list-item ng-repeat="item in admin">
+                    <a>
+                      <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                          <button md-button>
+                        <md-icon>cup</md-icon>
+                        Upload
+                        </button>
+                        </div>
+                        <div class="inset">{{item}}
+                        </div>
+                      </md-item-content>
+                    </a>
+                  </md-list-item>-->
+              </md-list>
           </md-sidenav>
         
           <md-toolbar color="primary">
@@ -26,33 +82,46 @@
             <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE THEME</button>-->
           </md-toolbar>
         
-          <div class="app-content">
-            
-              <!--The content below is only a placeholder and can be replaced.-->
-<md-card> <app-city-search></app-city-search>
-</md-card>
-<br>
-    <md-card >
-        <form [formGroup]="weatherDashBoard">
-        <md-card-header> {{weatherDashBoard.value.temperature}}
-            <!--<div md-card-avatar class="example-header-image"></div>-->
-            <md-card-title>City</md-card-title>
-            <md-card-subtitle>{{weatherDashBoard.value.cityName}} {{weatherDashBoard.value.ioc}}</md-card-subtitle>
+
+  <div class="app-content">
+
+    <!--The content below is only a placeholder and can be replaced.-->
+    <md-card>
+      <app-city-search (onFinished)="WehenOnFinishedCitySearch($event)"></app-city-search>
+    </md-card>
+    <br>
+    <md-card>
+      <form [formGroup]="weatherDashBoard">
+        <md-card-header>
+            <md-list>
+                <md-list-item>     <h1>{{weatherDashBoard.value.temperature | temparetureConverter : 'F' :true}} </h1>
+                   </md-list-item>
+                <md-list-item> <h2>{{weatherDashBoard.value.cityName}} , {{weatherDashBoard.value.country}}</h2> </md-list-item>
+                <md-list-item> <h2>{{weatherDashBoard.value.description}} </h2></md-list-item>
+              <md-list-item><h2>Sunrise: {{weatherDashBoard.value.sunrise | date:'shortTime'}} </h2></md-list-item>
+               </md-list>
+                
+               <img md-card-sm-image src="http://openweathermap.org/img/w/{{weatherDashBoard.value.icon}}.png">
+                
+          <!--<img md-card-avatar src="http://openweathermap.org/img/w/{{weatherDashBoard.value.icon}}.png">-->
+          <!--<md-card-title>{{weatherDashBoard.value.cityName}}</md-card-title> 
+          <md-card-subtitle>{{weatherDashBoard.value.cityName}} </md-card-subtitle>-->
         </md-card-header>
+        <ng-content select="img"></ng-content>
         <md-card-content>
-        
-        <div class="form-group">
-            <label class="center-block">{{weatherDashBoard.value.description}} {{weatherDashBoard.value.sunrise}}</label>
-        </div>
-        
-      
+
+          <div class="form-group">
+            <label class="center-block"> </label>
+            <label class="center-block"></label>
+            <!--<label class="center-block">Sunset:{{weatherDashBoard.value.sunset | date:'shortTime'}} </label>-->
+          </div>
+
+
         </md-card-content>
       </form>
-      </md-card>
-    
-
-          </div>
-        
-        </md-sidenav-container>
+    </md-card>
 
 
+  </div>
+
+</md-sidenav-container>

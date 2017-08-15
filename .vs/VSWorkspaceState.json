@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Angulae4",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\common"
   ],
   "PreviewInSolutionExplorer": false
 }

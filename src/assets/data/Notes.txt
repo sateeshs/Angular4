@@ -1,0 +1,8 @@
+Retrying requests
+https://jaxenter.com/reactive-programming-http-and-angular-2-124560.html
+https://github.com/mattyork/fuzzy/blob/master/lib/fuzzy.d.ts
+
+string
+score
+index
+original

@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {InMemoryDbService} from 'angular-in-memory-web-api';
+import { Injectable } from '@angular/core';
+import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
@@ -15,11 +15,11 @@ import 'rxjs/add/operator/map';
 
 import 'rxjs/add/observable/of';
 
-import {CityModel} from './app.city.model';
+import { CityModel } from './app.city.model';
 //import * as data from './data/city.list.json';
 
 @Injectable()
-export class CityDataService  {
+export class CityDataService {
 
     data: CityModel[];
     testData: Object;
@@ -27,25 +27,25 @@ export class CityDataService  {
     constructor(private _http: Http) {
 
     }
-getData(): Observable<CityModel[]> {
-    return this._http.get('/assets/data/city.list.json').map((response => response.json()))
-    .do(data => {console.log('Test json call:'); })
-    .catch(this.handleError);
-}
-private handleError(error: Response) {
-    
-            // output errors to the console.
-    
-            console.error(error);
-    
-            return Observable.throw(error.json().error || "Server error");
-    
-        }
+    getData(): Observable<CityModel[]> {
+        return this._http.get('/assets/data/city.list.json').map((response => response.json()))
+            .do(data => { console.log('Test json call:'); })
+            .catch(this.handleError);
+    }
+    private handleError(error: Response) {
 
-        private extractData(response: Response) {
-            
-                    let body = response.json();
-            
-                    return body.data || {};
-                }
+        // output errors to the console.
+
+        console.error(error);
+
+        return Observable.throw(error.json().error || "Server error");
+
+    }
+
+    private extractData(response: Response) {
+
+        let body = response.json();
+
+        return body.data || {};
+    }
 }

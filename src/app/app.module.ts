@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import {  CommonModule } from '@angular/common';
 import {HttpModule} from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -41,13 +42,14 @@ import { AppComponent } from './app.component';
 import {LeftNavComponent} from './common/app.nav.component';
 import {CityFilterPipe} from './common/app.cityfilter.pipe';
 import {CitySearchComponent} from './common/app.citysearch.component';
-
+import {KelvinToFahrenheitPipe} from './common/app.metricconversion.pipe';
 @NgModule({
   declarations: [
-    AppComponent, LeftNavComponent, CityFilterPipe, CitySearchComponent
+    AppComponent, LeftNavComponent, CityFilterPipe, KelvinToFahrenheitPipe, CitySearchComponent
   ],
-  imports: [
+  imports: [ CommonModule,
     BrowserModule, ReactiveFormsModule, HttpModule,
+
     MdAutocompleteModule,
     MdButtonModule,
     MdButtonToggleModule,
@@ -80,7 +82,7 @@ import {CitySearchComponent} from './common/app.citysearch.component';
     MdToolbarModule,
     MdTooltipModule, BrowserAnimationsModule
   ],
-  exports: [MdAutocompleteModule,
+  exports: [MdAutocompleteModule, 
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
