@@ -10,6 +10,7 @@ import * as fuzzy from 'fuzzy';
 import { FuzzyModel } from './app.fuzzy.model';
 
 @Component({
+    moduleId: module.id,
     selector: 'app-city-search',
     templateUrl: 'app.citysearchcomponent.html',
     styles: ['app.citysearch.component.scss'],
