@@ -1,11 +1,11 @@
 <form [formGroup] ='citysearchForm'>
   <!--formControlName="cityAutoComplete" -->
   <md-input-container mat-autocomplete-panel>
-      <input  mdInput  placeholder="search for a city" [mdAutocomplete]="auto" formControlName="cityAutoComplete">
+      <input id="citySearchText"  mdInput placeholder="search for a city" [mdAutocomplete]="auto" formControlName="cityAutoComplete">
     </md-input-container>
 
   <md-autocomplete mat-autocomplete-panel #auto="mdAutocomplete" [displayWith]="citysearchForm.displayFn">
-  <md-option mat-autocomplete-panel *ngFor="let city of cityData " [value]="city.name +','+ city.country" (onSelectionChange)="onCitySelected(city, citysearchForm.value)">
+  <md-option id="citySearchTextOptions" mat-autocomplete-panel *ngFor="let city of cityData " [value]="city.name +','+ city.country" (onSelectionChange)="onCitySelected(city, citysearchForm.value)">
     <span>{{ city.name }}</span>
     <span class="demo-secondary-text"> ({{city.name}}) </span>
   </md-option> 

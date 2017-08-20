@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Angulae4",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\common"
+    "\\e2e",
+    "\\src"
   ],
+  "SelectedNode": "\\e2e\\app.po.ts",
   "PreviewInSolutionExplorer": false
 }
