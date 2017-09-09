@@ -94,7 +94,8 @@ export class CitySearchComponent implements OnInit, OnChanges {
     ngOnChanges(): void { }
 
     displayFn(city): string {
-        //console.log(city);
+        console.log(city);
+        //Format auto complete 
         console.log('onFinished');
         this.selectedCity = city;
 
@@ -103,6 +104,7 @@ export class CitySearchComponent implements OnInit, OnChanges {
 
     onCitySelected(state, form): void {
         form.state = state;
+        console.log(state);
         this.selectedCity = form.state.id;
         this.onFinished.next(this.selectedCity);
     }

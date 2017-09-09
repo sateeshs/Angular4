@@ -1,13 +1,32 @@
-<form [formGroup] ='citysearchForm'>
+<form [formGroup]='citysearchForm'>
   <!--formControlName="cityAutoComplete" -->
-  <md-input-container mat-autocomplete-panel>
-      <input id="citySearchText"  mdInput placeholder="search for a city" [mdAutocomplete]="auto" formControlName="cityAutoComplete">
-    </md-input-container>
+  <!--
+    <md-form-field mat-autocomplete-panel>
+        <input id="citySearchText"  mdInput placeholder="search for a city" [mdAutocomplete]="auto" formControlName="cityAutoComplete">
+      </md-form-field>
 
-  <md-autocomplete mat-autocomplete-panel #auto="mdAutocomplete" [displayWith]="citysearchForm.displayFn">
-  <md-option id="citySearchTextOptions" mat-autocomplete-panel *ngFor="let city of cityData " [value]="city.name +','+ city.country" (onSelectionChange)="onCitySelected(city, citysearchForm.value)">
-    <span>{{ city.name }}</span>
-    <span class="demo-secondary-text"> ({{city.name}}) </span>
-  </md-option> 
-</md-autocomplete>
+    <md-autocomplete mat-autocomplete-panel #auto="mdAutocomplete" [displayWith]="citysearchForm.displayFn">
+    <md-option id="citySearchTextOptions" mat-autocomplete-panel *ngFor="let city of cityData " [value]="city.name +','+ city.country" (onSelectionChange)="onCitySelected(city, citysearchForm.value)">
+      <span>{{ city.name }}</span>
+      <span class="demo-secondary-text"> ({{city.name}}) </span>
+    </md-option>
+  </md-autocomplete>
+  </form>
+  -->
+  
+  <md-form-field>
+    <input id="citySearchText" mdInput placeholder="search for a city" [mdAutocomplete]="reactiveAuto" formControlName="cityAutoComplete">
+    <md-autocomplete #reactiveAuto="mdAutocomplete" [displayWith]="citysearchForm.displayFn">
+      <md-option id="citySearchTextOptions" *ngFor="let city of cityData " [value]="city.name +','+ city.country" (onSelectionChange)="onCitySelected(city, citysearchForm.value)">
+       <!-- {{ city.name +','+ city.country }}-->
+        <span>{{ city.name }}</span>
+        <span class="demo-secondary-text"> ({{city.country}}) </span>
+      </md-option>
+    </md-autocomplete>
+  </md-form-field>
+ 
+  
+ 
 </form>
+
+<!--https://github.com/angular/material2/blob/master/src/demo-app/autocomplete/autocomplete-demo.ts-->

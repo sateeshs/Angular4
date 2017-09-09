@@ -2,8 +2,10 @@ import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren, Renderer 
 import {DatePipe} from '@angular/common';
 import {FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray} from '@angular/forms';
 import { BehaviorSubject} from 'rxjs/Rx';
+import {Routes} from '@angular/router';
 //import {DataSource} from '@angular/cdk';
 
+import {AppNavComponent} from './app-nav/app-nav.component';
 import {WeatherFeed} from './app.weatherService';
 import {WeatherModel} from './Iweather.model';
 import {CitySearchComponent} from './common/app.citysearch.component';

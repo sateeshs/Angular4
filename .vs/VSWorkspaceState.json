@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Angulae4",
-    "\\e2e",
-    "\\src"
+    "\\src",
+    "\\src\\app"
   ],
-  "SelectedNode": "\\e2e\\app.po.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
